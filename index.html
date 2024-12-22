@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Numbers and Date</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .output {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Random Numbers, Current Date, and Rounded Number</h1>
+    <div id="output" class="output"></div>
+
+    <script>
+        // Function to generate a random integer between min and max
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        // Function to generate a random float between min and max
+        function getRandomFloat(min, max) {
+            return (Math.random() * (max - min) + min).toFixed(2);
+        }
+
+        // Display random set of numbers
+        const outputDiv = document.getElementById("output");
+        let outputHtml = "<h2>Random Set of Numbers:</h2><ul>";
+        for (let i = 0; i < 5; i++) {
+            outputHtml += `<li>${getRandomInt(1, 100)}</li>`;
+        }
+        outputHtml += "</ul>";
+
+        // Display the current date
+        const currentDate = new Date();
+        outputHtml += `<h2>Current Date:</h2><p>${currentDate.toLocaleString()}</p>`;
+
+        // Display a rounded random number
+        const randomFloat = getRandomFloat(1, 100);
+        outputHtml += `<h2>Rounded Random Number:</h2><p>${randomFloat}</p>`;
+
+        // Add output to the page
+        outputDiv.innerHTML = outputHtml;
+    </script>
+</body>
+</html>
